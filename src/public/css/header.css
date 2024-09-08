@@ -1,0 +1,159 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    aspect-ratio: 1440/900;
+}
+
+.header {
+    width: 100%;
+    height: 12%;
+}
+
+
+.header_inner {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.header-logo {
+    width: 13%;
+    margin-left: 0.5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo input {
+    display: none;
+}
+
+.header-logo input:checked~nav {
+    visibility: visible;
+}
+
+.menu-btn {
+    width: 30%;
+    height: 63%;
+    margin: 0;
+    border-radius: 5px;
+    z-index: 5;
+    user-select: none;
+    background-color: rgb(48, 93, 255);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 6%;
+    box-sizing: border-box;
+}
+
+.menu-btn span {
+    display: block;
+    position: absolute;
+    height: 4%;
+    background: #FFF;
+}
+
+.menu-btn span:nth-child(1) {
+    top: 0.9vw;
+    width: 30%;
+    height: 0.168vw;
+}
+
+.menu-btn span:nth-child(2) {
+    top: 1.7vw;
+    width: 60%;
+    height: 0.18vw;
+}
+
+.menu-btn span:nth-child(3) {
+    top: 2.5vw;
+    width: 20%;
+    height: 0.18vw;
+}
+
+/* バツ状態 */
+.menu-btn.active span:nth-child(1) {
+    top: 1.7vw;
+    width: 60%;
+    transform: rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    top: 1.7vw;
+    width: 60%;
+    transform: rotate(-45deg);
+}
+
+.header-logo nav {
+    width: 100%;
+    background: white;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    position: fixed;
+}
+
+.header-logo ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 60vw;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.header-logo ul li {
+    padding: 1em;
+}
+
+.header-logo ul li a {
+    color: rgb(33, 75, 224);
+    text-decoration: none;
+    font-size: 2vw;
+}
+
+.header-logo ul li a:hover {
+    opacity: 0.5;
+}
+
+.header-logo ul li form button {
+    font-size: 2vw;
+    border: none;
+    cursor: pointer;
+    color: rgb(33, 75, 224);
+}
+
+.header-logo ul li form button:hover {
+    opacity: 0.5;
+}
+
+.header-logo h1 {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3vw;
+    margin-left: 20%;
+    color: rgb(48, 93, 255);
+    margin-top: 3%;
+    margin-left: 5%;
+}

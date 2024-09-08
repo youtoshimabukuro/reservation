@@ -1,0 +1,168 @@
+.search {
+    width: 48%;
+    height: 80%;
+    margin-right: 0.6%;
+}
+
+.search form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
+}
+
+.search select {
+    width: 20%;
+    height: 100%;
+    font-size: 1.2vw;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-left: 2%;
+}
+
+.search option {
+    color: black;
+}
+
+.material-symbols-outlined {
+    color: grey;
+}
+
+.search input {
+    width: 60%;
+    height: 100%;
+    font-size: 1.2vw;
+    border: none;
+    outline: none;
+}
+
+.main {
+    width: 100%;
+    height: 83%;
+    display: flex;
+}
+
+.shop-all {
+    width: 100%;
+    height: 100%;
+}
+
+.shop-all_inner {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-all_item {
+    width: 21.9%;
+    height: 20vw;
+    margin: 1.35vw;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
+}
+
+.shop-img-box {
+    width: 100%;
+    height: 53%;
+    border-radius: 6px;
+}
+
+.shop-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.shop-name {
+    margin-top: 8%;
+    margin-left: 5%;
+    font-size: 1.4vw;
+    font-weight: 600;
+}
+
+.shop-tag-box {
+    display: flex;
+    margin-top: 3%;
+    margin-left: 4%;
+    font-size: 1.05vw;
+}
+
+.shop-bottom-box {
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    height: 12%;
+    justify-content: space-between;
+}
+
+.shop-btn {
+    margin-left: 5%;
+    width: 40%;
+    height: 100%;
+}
+
+.shop-btn form {
+    width: 100%;
+    height: 100%;
+}
+
+.shop-btn button {
+    font-size: 1.2vw;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: rgb(48, 93, 255);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-form {
+    width: 15%;
+    height: 100%;
+    display: flex;
+}
+
+.heart {
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+    cursor: pointer;
+    position: relative;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 41%;
+    height: 83%;
+    border-radius: 100px 100px 0 0;
+    background: rgb(238, 238, 238);
+}
+
+.heart::before {
+    left: 47%;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.shop-bottom-box input:checked~.heart::after,
+.shop-bottom-box input:checked~.heart::before {
+    background: red;
+    color: #FFF;
+}
+
+.shop-bottom-box input {
+    display: none;
+}

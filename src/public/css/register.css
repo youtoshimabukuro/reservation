@@ -1,0 +1,117 @@
+.main {
+    width: 100%;
+    height: 83%;
+    display: flex;
+}
+
+.register {
+    width: 100%;
+    height: 100%;
+}
+
+.register_inner {
+    width: 40%;
+    height: 50%;
+    margin: 10% auto;
+    box-shadow: 2px 2px 2px 0px rgba(138, 134, 134, 0.45);
+    border-radius: 5px;
+}
+
+.register_inner h1 {
+    font-size: 1.4vw;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 2%;
+    height: 15%;
+    color: white;
+    background-color: rgb(48, 93, 255);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.register_form {
+    height: 60%;
+    width: 85%;
+    padding-top: 5%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.register_form-item {
+    height: 15%;
+    width: 82%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.form_error {
+    height: 11%;
+    width: 82%;
+    margin: 0 auto;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    padding-left: 9%;
+    box-sizing: border-box;
+}
+
+.user-name,
+.email,
+.lock {
+    display: flex;
+    margin-right: 3%;
+}
+
+.user-name::before {
+    content: url(../fonts/user.svg);
+    width: 2vw;
+    height: 2vw;
+}
+
+.email::before {
+    content: url(../fonts/mail.svg);
+    width: 2vw;
+    height: 2.2vw;
+}
+
+.lock::before {
+    content: url(../fonts/key.svg);
+    width: 2vw;
+    height: 2.2vw;
+}
+
+.register_form-item input {
+    font-size: 1.2vw;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #999;
+    margin: 0 auto;
+}
+
+.material-symbols-outlined {
+    font-size: 48px;
+}
+
+.register_form-btn {
+    display: flex;
+    width: 82%;
+    margin: 0 auto;
+    justify-content: right;
+}
+
+.register_form-btn input {
+    font-size: 1.1vw;
+    padding: 1.5% 4%;
+    border: none;
+    box-shadow: 2px 2px 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: rgb(48, 93, 255);
+}

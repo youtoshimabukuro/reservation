@@ -46,9 +46,7 @@
                 </option>
             @endforeach
         </select>
-        <span class="material-symbols-outlined">
-            search
-        </span>
+        <label class="search-before" for="search"></label>
         <input type="search" name="search" placeholder="Search" value="{{request('search')}}">
     </form>
 </div>

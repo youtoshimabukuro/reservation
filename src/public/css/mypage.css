@@ -1,7 +1,6 @@
 .main {
     width: 100%;
     height: 78%;
-    display: flex;
 }
 
 .mypage {
@@ -17,20 +16,43 @@
     justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+    .mypage_inner {
+        width: 92%;
+        height: auto;
+        display: block;
+    }
+}
+
 .reservation-status {
     width: 38%;
     height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .reservation-status {
+        width: 100%;
+    }
+}
+
 .reservation-status-ttl {
-    width: 100%;
     margin-top: 26%;
-    display: flex;
-    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-status-ttl {
+        margin-top: 8%;
+    }
 }
 
 .reservation-status-ttl h3 {
     font-size: 1.7vw;
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-status-ttl h3 {
+        font-size: 5.1vw;
+    }
 }
 
 .reservation-description {
@@ -42,6 +64,16 @@
     background-color: rgb(48, 93, 255);
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-description {
+        width: 100%;
+        height: 59.5vw;
+        margin-top: 5%;
+        border-radius: 10px;
+        box-shadow: 6px 6px 6px 6px rgba(138, 134, 134, 0.45);
+    }
 }
 
 .reservation-description-top {
@@ -56,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 25%;
+    width: 20%;
 }
 
 .clock {
@@ -71,9 +103,22 @@
     height: 2.2vw;
 }
 
+@media screen and (max-width: 768px) {
+    .clock::before {
+        width: 6vw;
+        height: 6.6vw;
+    }
+}
+
 .reservation-description-ttl h4 {
     font-size: 1.2vw;
     color: #FFF;
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-description-ttl h4 {
+        font-size: 3.6vw;
+    }
 }
 
 .reservation-description-close {
@@ -149,22 +194,36 @@
     box-sizing: border-box;
 }
 
-.reservation-table th {
+.reservation-table th,
+.reservation-table td {
     font-size: 1.2vw;
+}
+
+@media screen and (max-width: 768px) {
+
+    .reservation-table th,
+    .reservation-table td {
+        font-size: 3.6vw;
+    }
+}
+
+.reservation-table th {
     width: 23%;
 }
 
 .reservation-table td {
-    font-size: 1.2vw;
     width: 70%;
 }
 
 .link {
     margin-top: 8%;
     height: 5%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .link {
+        margin-top: 6%;
+    }
 }
 
 .link span {
@@ -172,6 +231,13 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .link span {
+        font-size: 3.6vw;
+    }
 }
 
 .favorite {
@@ -179,17 +245,29 @@
     height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .favorite {
+        margin-top: 5%;
+        width: 100%;
+    }
+}
+
 .user {
     width: 100%;
     height: calc(100% * 0.24 * 38 / 54);
     display: flex;
     align-items: center;
-    font-size: 1.9vw;
 }
 
 .user h3 {
     font-size: 2vw;
     letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px) {
+    .user h3 {
+        font-size: 6vw;
+    }
 }
 
 .reservation-ttl {
@@ -201,12 +279,25 @@
     letter-spacing: 1px;
 }
 
+@media screen and (max-width: 768px) {
+    .reservation-ttl h3 {
+        font-size: 5.1vw;
+        margin-top: 5%;
+    }
+}
+
 .favorite-shop {
     width: 100%;
     height: 43%;
     margin-top: 5.4%;
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .favorite-shop {
+        display: block;
+    }
 }
 
 .shop-all_item {
@@ -216,10 +307,26 @@
     box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
 }
 
+@media screen and (max-width: 768px) {
+    .shop-all_item {
+        width: 100%;
+        height: 90vw;
+        border-radius: 12px;
+        margin-bottom: 5%;
+        box-shadow: 6px 6px 6px 0px rgba(138, 134, 134, 0.45);
+    }
+}
+
 .shop-img-box {
     width: 100%;
     height: 53%;
     border-radius: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    .shop-img-box {
+        border-radius: 12px;
+    }
 }
 
 .shop-img {
@@ -228,26 +335,50 @@
     border-radius: 6px 6px 0px 0px;
 }
 
+@media screen and (max-width: 768px) {
+    .shop-img {
+        border-radius: 12px 12px 0px 0px;
+    }
+}
+
 .shop-name {
-    margin-top: 7%;
+    margin-top: 8%;
     margin-left: 5%;
     font-size: 1.4vw;
     font-weight: 600;
 }
 
+@media screen and (max-width: 768px) {
+    .shop-name {
+        font-size: 7vw;
+    }
+}
+
 .shop-tag-box {
     display: flex;
-    margin-top: 2%;
+    margin-top: 3%;
     margin-left: 4%;
     font-size: 1.05vw;
 }
 
+@media screen and (max-width: 768px) {
+    .shop-tag-box {
+        font-size: 4.15vw;
+    }
+}
+
 .shop-bottom-box {
     display: flex;
-    margin-top: 3%;
+    margin-top: 5%;
     width: 100%;
     height: 12%;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .shop-bottom-box {
+        margin-top: 4%;
+    }
 }
 
 .shop-btn {
@@ -270,6 +401,13 @@
     color: #fff;
     border: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .shop-btn button {
+        font-size: 3.8vw;
+        border-radius: 12px;
+    }
 }
 
 .favorite-form {
@@ -317,19 +455,4 @@
 
 .shop-bottom-box input {
     display: none;
-}
-
-.favorite_link {
-    margin-top: 6%;
-    height: 5%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.favorite_link span {
-    font-size: 1.2vw;
-    height: 95%;
-    display: flex;
-    align-items: center;
 }

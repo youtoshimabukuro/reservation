@@ -2,6 +2,24 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/shop_detail.css') }}">
+<script>
+    var scrollPosition;
+    var STORAGE_KEY = "scrollY";
+
+
+    function saveScrollPosition() {
+        scrollPosition = window.pageYOffset;
+        localStorage.setItem(STORAGE_KEY, scrollPosition);
+    }
+
+    window.addEventListener("load", function () {
+        scrollPosition = localStorage.getItem(STORAGE_KEY);
+        if (scrollPosition !== null) {
+            scrollTo(0, scrollPosition);
+        }
+        window.addEventListener("scroll", saveScrollPosition, false);
+    });
+</script>
 @endsection
 
 @section('main')

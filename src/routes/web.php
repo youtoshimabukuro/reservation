@@ -16,7 +16,7 @@ use App\Http\Controllers\MypageController;
 |
 */
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/', [ReservationController::class, 'index']);
     Route::post('/reservation/search', [ReservationController::class, 'search']);
     Route::post('/favorite', [ReservationController::class, 'favorite']);
@@ -25,4 +25,4 @@ use App\Http\Controllers\MypageController;
     Route::post('/shopDetail', [ReservationController::class, 'shopDetail']);
     Route::post('/reserve/confirm', [ReserveController::class, 'confirm']);
     Route::post('/reserve/reserve', [ReserveController::class, 'reserve']);
-// });
+});

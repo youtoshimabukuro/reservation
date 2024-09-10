@@ -39,6 +39,7 @@ class ReserveController extends Controller
         ];
 
         Reservation::create($form);
-        return redirect('/');
+
+        return view('/register');
     }
 }

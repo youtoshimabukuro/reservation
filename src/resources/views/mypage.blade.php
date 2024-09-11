@@ -62,6 +62,9 @@
             </div>
             <div class="reservation-ttl">
                 <h3>お気に入り店舗</h3>
+                <div class="favorite_link-top">
+                    <span>{{$favorites->links()}}</span>
+                </div>
             </div>
             <div class="favorite-shop">
                 @foreach ($favorites as $favorite)
@@ -76,7 +79,9 @@
                         </div>
                         <div class="shop-bottom-box">
                             <div class="shop-btn">
-                                <form action="">
+                                <form action="/shopDetail" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$favorite->shop->id}}">
                                     <button>詳しく見る</button>
                                 </form>
                             </div>

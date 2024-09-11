@@ -274,6 +274,13 @@
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .reservation-ttl {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
 .reservation-ttl h3 {
     font-size: 1.7vw;
     letter-spacing: 1px;
@@ -284,6 +291,26 @@
         font-size: 5.1vw;
         margin-top: 5%;
     }
+}
+
+.favorite_link-top {
+    width: 50%;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .favorite_link-top {
+        font-size: 3.6vw;
+        display: block;
+    }
+}
+
+.favorite_link-top span {
+    font-size: 3.6vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .favorite-shop {
@@ -342,7 +369,7 @@
 }
 
 .shop-name {
-    margin-top: 8%;
+    margin-top: 7%;
     margin-left: 5%;
     font-size: 1.4vw;
     font-weight: 600;
@@ -356,7 +383,7 @@
 
 .shop-tag-box {
     display: flex;
-    margin-top: 3%;
+    margin-top: 2%;
     margin-left: 4%;
     font-size: 1.05vw;
 }
@@ -369,7 +396,7 @@
 
 .shop-bottom-box {
     display: flex;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 100%;
     height: 12%;
     justify-content: space-between;
@@ -455,4 +482,18 @@
 
 .shop-bottom-box input {
     display: none;
+}
+
+.favorite_link span {
+    font-size: 1.2vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .favorite_link span {
+        font-size: 3.6vw;
+    }
 }

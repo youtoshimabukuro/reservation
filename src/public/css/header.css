@@ -16,6 +16,7 @@ body {
 @media screen and (max-width: 768px) {
     .header {
         height: 12vw;
+        margin-bottom: 0.5vw;
     }
 }
 
@@ -263,12 +264,5 @@ body {
     .header-logo h1 {
         font-size: 6vw;
         margin-left: 5%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .header-logo h1 {
-        font-size: 6vw;
-        margin-left: 3%;
     }
 }

@@ -247,7 +247,7 @@
 }
 
 .heart::before {
-    left: 47%;
+    left: 44%;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
 }

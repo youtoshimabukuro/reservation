@@ -78,6 +78,7 @@
     align-items: center;
     padding-left: 9%;
     box-sizing: border-box;
+    color: red;
 }
 
 @media screen and (max-width: 768px) {

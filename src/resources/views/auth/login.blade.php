@@ -20,7 +20,7 @@
                 <span class="email"></span>
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="Email">
             </div>
-            <div class="form__error">
+            <div class="form_error">
             @error('email')
             {{ $message }}
             @enderror
@@ -29,7 +29,7 @@
                 <span class="lock"></span>
                 <input type="password" name="password" placeholder="password">
             </div>
-            <div class="form__error">
+            <div class="form_error">
             @error('password')
             {{ $message }}
             @enderror

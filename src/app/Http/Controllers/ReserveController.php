@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReservationRequest;
 
 class ReserveController extends Controller
 {
@@ -28,18 +29,27 @@ class ReserveController extends Controller
         return view('shop_detail', compact('confirm', 'shop', 'date', 'times', 'numbers', 'timeId', 'numberId'));
     }
 
-    public function reserve(Request $request)
+    public function getConfirm() 
     {
-        $form = [
-            'user_id' => Auth::id(),
-            'shop_id' => $request->shop_name,
-            'date' => $request->date,
-            'time_id' => $request->time,
-            'number_id' => $request->number
-        ];
+        $shop = Session::get('shop');
+        $date = new DateTime();
+        $times = Time::all();
+        $numbers = Number::all();
+        return view('shop_detail', compact( 'shop', 'date', 'times', 'numbers'));
+    }
 
-        Reservation::create($form);
+    public function reserve(ReservationRequest $request)
+    {
+            $form = [
+                'user_id' => Auth::id(),
+                'shop_id' => $request->shop_name,
+                'date' => $request->date,
+                'time_id' => $request->time,
+                'number_id' => $request->number
+            ];
 
-        return view('/register');
+            Reservation::create($form);
+
+            return view('/done');
     }
 }

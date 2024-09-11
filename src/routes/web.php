@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\MypageController;
@@ -24,5 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/mypage/favorite', [MypageController::class, 'favorite']);
     Route::post('/shopDetail', [ReservationController::class, 'shopDetail']);
     Route::post('/reserve/confirm', [ReserveController::class, 'confirm']);
+    Route::get('/reserve/confirm', [ReserveController::class, 'getConfirm']);
     Route::post('/reserve/reserve', [ReserveController::class, 'reserve']);
 });
+
+Route::get('/register', [AuthController::class, 'getRegister']);
+Route::post('/register', [AuthController::class, 'postRegister']);
+
+Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
+;
+Route::post('/login', [AuthController::class, 'postLogin']);

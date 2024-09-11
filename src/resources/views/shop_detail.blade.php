@@ -2,24 +2,6 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/shop_detail.css') }}">
-<script>
-    var scrollPosition;
-    var STORAGE_KEY = "scrollY";
-
-
-    function saveScrollPosition() {
-        scrollPosition = window.pageYOffset;
-        localStorage.setItem(STORAGE_KEY, scrollPosition);
-    }
-
-    window.addEventListener("load", function () {
-        scrollPosition = localStorage.getItem(STORAGE_KEY);
-        if (scrollPosition !== null) {
-            scrollTo(0, scrollPosition);
-        }
-        window.addEventListener("scroll", saveScrollPosition, false);
-    });
-</script>
 @endsection
 
 @section('main')
@@ -88,6 +70,9 @@
                                     <td>{{$confirm['date']}}</td>
                                     <input type="hidden" name="date" value="{{$confirm['date']}}">
                                 @endisset
+                                @error('date')
+                                    <td><span class="error">{{ $message }}</span></td>
+                                @enderror
                             </tr>
                             <tr>
                                 <th>Time</th>
@@ -95,6 +80,9 @@
                                     <td>{{$timeId->reservation_time}}</td>
                                     <input type="hidden" name="time" value="{{$confirm['time']}}">
                                 @endif
+                                @error('time')
+                                    <td><span class="error">{{ $message }}</span></td>
+                                @enderror
                             </tr>
                             <tr>
                                 <th>Number</th>
@@ -102,6 +90,9 @@
                                     <td>{{$numberId->number}}人</td>
                                     <input type="hidden" name="number" value="{{$confirm['number']}}">
                                 @endif
+                                @error('number')
+                                    <td><span class="error">{{ $message }}</span></td>
+                                @enderror
                             </tr>
                         </table>
                     </form>

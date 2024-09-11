@@ -12,6 +12,24 @@
     @yield('symbol')
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/index.js') }}" defer></script>
+    <script>
+        var scrollPosition;
+        var STORAGE_KEY = "scrollY";
+
+
+        function saveScrollPosition() {
+            scrollPosition = window.pageYOffset;
+            localStorage.setItem(STORAGE_KEY, scrollPosition);
+        }
+
+        window.addEventListener("load", function () {
+            scrollPosition = localStorage.getItem(STORAGE_KEY);
+            if (scrollPosition !== null) {
+                scrollTo(0, scrollPosition);
+            }
+            window.addEventListener("scroll", saveScrollPosition, false);
+        });
+    </script>
 </head>
 
 <body>

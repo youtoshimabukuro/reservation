@@ -484,6 +484,10 @@
     display: none;
 }
 
+.shop-bottom-box iframe {
+    display: none;
+}
+
 .favorite_link span {
     font-size: 1.2vw;
     height: 100%;

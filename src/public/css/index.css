@@ -247,7 +247,7 @@
 }
 
 .heart::before {
-    left: 44%;
+    left: 41%;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
 }
@@ -272,6 +272,7 @@
     color: #FFF;
 }
 
-.shop-bottom-box input {
+.shop-bottom-box input,
+.shop-bottom-box iframe {
     display: none;
 }

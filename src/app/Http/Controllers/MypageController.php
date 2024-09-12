@@ -20,8 +20,6 @@ class MypageController extends Controller
             where('shop_id', $request->favorite)
             ->first();
 
-        dd($favorite);
-
         Favorite::find($favorite->id)->delete();
 
         return redirect('/mypage');

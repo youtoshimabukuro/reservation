@@ -29,7 +29,7 @@
             @endforeach
         </select>
         <label class="search-before" for="search"></label>
-        <input type="search" name="search" placeholder="Search" value="{{request('search')}}">
+        <input type="search" name="search" placeholder="Search..." value="{{request('search')}}">
     </form>
 </div>
 @endsection
@@ -56,20 +56,27 @@
                             <button>詳しく見る</button>
                         </form>
                     </div>
-                    <form action="/favorite" class="favorite-form" method="post">
+                    <form action="/favorite" id="form" class="favorite-form" method="post" target="sendFavorite">
                         @csrf
                         @if (@count($favorites) > 0)
+                            <?php $i=0; ?>
                             @foreach ($favorites as $favorite)
-                                <input type="checkbox" id="{{$shop->id}}" 
-                                @if ($shop->id == $favorite->shop_id) checked @endif
-                                    onchange="this.form.submit()">
+                                @if ($shop->id == $favorite->shop_id)
+                                    <input type="checkbox" id="{{$shop->id}}" checked onchange="this.form.submit()" class="btn-send">
+                                    <?php $i++; ?>
+                                    @break
+                                @endif
                             @endforeach
+                            @if ($i==0)
+                                <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
+                            @endif
                         @else
-                            <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()">
+                            <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
                         @endif
                         <input type="text" name="favorite" value="{{$shop->id}}">
                         <label for="{{$shop->id}}" class="heart"></label>
                     </form>
+                    <iframe name="sendFavorite"></iframe>
                 </div>
             </div>
         @endforeach

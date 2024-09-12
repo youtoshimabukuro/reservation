@@ -90,7 +90,7 @@ class ShopsTableSeeder extends Seeder
             'shop_img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
             'shop_name' => '築地色合',
             'city_id' => 2,
-            'genre_id' => 1,
+            'genre_id' => 2,
             'shop_overview' => '鮨好きの方の為の鮨屋として、迫力ある大きさの握りを1貫ずつ提供致します。'
         ];
         DB::table('shops')->insert($param);

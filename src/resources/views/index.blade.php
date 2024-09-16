@@ -38,6 +38,10 @@
 
 <div class="shop-all">
     <div class="shop-all_inner">
+        @hasanyrole('admin')
+        <p>役割がadminの人だけが見れるよ</p>
+        @endhasanyrole
+        <p>みんな見れるよ</p>
         @foreach ($shops as $shop)
             <div class="shop-all_item">
                 <div class="shop-img-box">
@@ -59,15 +63,15 @@
                     <form action="/favorite" id="form" class="favorite-form" method="post" target="sendFavorite">
                         @csrf
                         @if (@count($favorites) > 0)
-                            <?php $i=0; ?>
+                            <?php        $i = 0; ?>
                             @foreach ($favorites as $favorite)
                                 @if ($shop->id == $favorite->shop_id)
                                     <input type="checkbox" id="{{$shop->id}}" checked onchange="this.form.submit()" class="btn-send">
-                                    <?php $i++; ?>
+                                    <?php                $i++; ?>
                                     @break
                                 @endif
                             @endforeach
-                            @if ($i==0)
+                            @if ($i == 0)
                                 <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
                             @endif
                         @else

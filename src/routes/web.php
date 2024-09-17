@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::get('/mypage', [ReservationController::class, 'myPage']);
     Route::post('/mypage/favorite', [MypageController::class, 'favorite']);
-    Route::post('/shopDetail', [ReservationController::class, 'shopDetail']);
+    Route::post('/detail/{shop_id}', [ReservationController::class, 'shopDetail']);
     Route::post('/reserve/confirm', [ReserveController::class, 'confirm']);
     Route::get('/reserve/confirm', [ReserveController::class, 'getConfirm']);
     Route::post('/reserve/reserve', [ReserveController::class, 'reserve']);

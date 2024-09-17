@@ -38,10 +38,6 @@
 
 <div class="shop-all">
     <div class="shop-all_inner">
-        @hasanyrole('admin')
-        <p>役割がadminの人だけが見れるよ</p>
-        @endhasanyrole
-        <p>みんな見れるよ</p>
         @foreach ($shops as $shop)
             <div class="shop-all_item">
                 <div class="shop-img-box">
@@ -54,9 +50,8 @@
                 </div>
                 <div class="shop-bottom-box">
                     <div class="shop-btn">
-                        <form action="/shopDetail" method="post">
+                        <form action="/detail/{{$shop->id}}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{$shop->id}}">
                             <button>詳しく見る</button>
                         </form>
                     </div>

@@ -29,3 +29,16 @@
         @yield('search')
     </div>
 </header>
+@hasanyrole('admin')
+    <div class="admin">
+        <div class="admin_inner">
+            <div class="admin_button">
+                <form action="">
+                    <button type="submit" value="">
+                        Todoを作成しました
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+@endhasanyrole

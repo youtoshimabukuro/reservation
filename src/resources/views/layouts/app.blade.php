@@ -32,7 +32,7 @@
     </script>
 </head>
 
-<body>
+<body class="body">
     <div class="wrapper">
         @component('components.header')
         @endcomponent

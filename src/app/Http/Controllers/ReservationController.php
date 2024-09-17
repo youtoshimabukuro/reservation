@@ -44,9 +44,9 @@ class ReservationController extends Controller
         return view('index', compact('cities', 'genres', 'shops', 'favorites'));
     }
 
-    public function shopDetail(Request $request)
+    public function shopDetail(Shop $shop_id)
     {
-        $shop = Shop::find($request->id);
+        $shop = $shop_id;
         $date = new DateTime();
         $times = Time::all();
         $numbers = Number::all();

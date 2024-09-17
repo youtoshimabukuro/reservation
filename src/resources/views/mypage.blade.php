@@ -79,9 +79,8 @@
                         </div>
                         <div class="shop-bottom-box">
                             <div class="shop-btn">
-                                <form action="/shopDetail" method="post">
+                                <form action="/detail/{{$favorite->shop->id}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{$favorite->shop->id}}">
                                     <button>詳しく見る</button>
                                 </form>
                             </div>

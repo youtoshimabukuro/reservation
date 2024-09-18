@@ -267,35 +267,3 @@ html,
         margin-left: 5%;
     }
 }
-
-.admin_inner {
-    padding: 0.8% 6%;
-    font-size: 1.3vw;
-}
-
-@media screen and (max-width: 768px) {
-    .admin_inner {
-        padding: 3% 2%;
-        font-size: 5vw;
-    }
-}
-
-.admin_button {
-    width: 100%;
-}
-
-.admin_button button {
-    padding: 1% 42.9%;
-    font-size: 1.3vw;
-    border: none;
-    border-radius: 5px;
-    background-color: #FFF;
-    box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
-}
-
-@media screen and (max-width: 768px) {
-    .admin_button button {
-        padding: 1% 32%;
-        font-size: 3.5vw;
-    }
-}

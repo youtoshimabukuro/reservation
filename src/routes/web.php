@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\MypageController;
 
@@ -19,6 +20,8 @@ use App\Http\Controllers\MypageController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [ReservationController::class, 'index']);
+    Route::get('/admin/register', [AdminController::class, 'getRegister']);
+    Route::post('/admin/register', [AdminController::class, 'postRegister']);
     Route::post('/reservation/search', [ReservationController::class, 'search']);
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::get('/mypage', [ReservationController::class, 'myPage']);

@@ -22,6 +22,26 @@
                         <li><a href="/register">Registration</a></li>
                         <li><a href="/login">Login</a></li>
                     @endif
+                    @hasanyrole('admin')
+                        <li>
+                            <form action="/admin/register">
+                                @csrf
+                                <button type="submit" value="">
+                                    管理者画面
+                                </button>
+                            </form>
+                        </li>
+                    @endhasanyrole
+                    @hasanyrole('representative')
+                        <li>
+                            <form action="">
+                                @csrf
+                                <button type="submit" value="">
+                                    Todoを作成しました
+                                </button>
+                            </form>
+                        </li>
+                    @endhasanyrole
                 </ul>
             </nav>
             <h1>Rese</h1>
@@ -29,16 +49,3 @@
         @yield('search')
     </div>
 </header>
-@hasanyrole('admin')
-    <div class="admin">
-        <div class="admin_inner">
-            <div class="admin_button">
-                <form action="">
-                    <button type="submit" value="">
-                        Todoを作成しました
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-@endhasanyrole

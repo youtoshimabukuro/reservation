@@ -79,6 +79,28 @@
                 </div>
             </div>
         @endforeach
+        <div class="shop-all_item">
+            <div class="shop-img-box">
+                <img src="{{asset('storage/photograph/about.jpg')}}" alt="" class="shop-img">
+            </div>
+            <h4 class="shop-name">仙人</h4>
+            <div class="shop-tag-box">
+                <p class="shop-city">#東京</p>
+                <p class="shop-genre">#寿司</p>
+            </div>
+            <div class="shop-bottom-box">
+                <div class="shop-btn">
+                    <form action="">
+                        <button>詳しく見る</button>
+                    </form>
+                </div>
+                <form action="" class="favorite-form">
+                    <input type="checkbox" id="test" name="favorite" value="1" onchange="">
+                    <label for="test" class="heart"></label>
+                </form>
+                <iframe name="sendPhoto"></iframe>
+            </div>
+        </div>
     </div>
 </div>
 

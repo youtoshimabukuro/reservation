@@ -32,10 +32,10 @@ class RepresentativeController extends Controller
             'shop_overview'=>$request->shop_overview
         ];
 
-        $photograph = $request->shop_img;
+        $photograph = $request->file('shop_img')->storeAs('public/photograph', $request->file('shop_img')->getClientOriginalName());
 
-        $photograph->store('public/photograph');
+        shop::create($form);
 
-        dd($form);
+        return redirect('/representative/addStore');
     }
 }

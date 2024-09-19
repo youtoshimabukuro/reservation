@@ -1,0 +1,80 @@
+.main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    background-color: aliceblue;
+}
+
+.confirm_inner {
+    width: 87%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.confirm_inner h1 {
+    font-size: 1.7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0%;
+    padding: 3%;
+}
+
+.confirm_inner form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    font-size: 1.6vw;
+    width: 11%;
+    border: none;
+    outline: none;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.date_ttl-btn {
+    font-size: 1.6vw;
+    margin: 2%;
+    width: 3%;
+    border-color: rgb(33, 75, 224);
+    border-width: 1px;
+    color: rgb(33, 65, 184);
+    background-color: white;
+}
+
+.date_ttl-btn:active {
+    background: rgb(33, 75, 224);
+    color: #FFF;
+}
+
+.table_box {
+    width: 100%;
+    height: 62%;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.confirm_table th,
+.confirm_table td {
+    font-size: 1.2vw;
+    padding: 2%;
+    text-align: center;
+    border-top: 0.1vw solid rgb(212, 212, 212);
+    border-bottom: 0.1vw solid rgb(212, 212, 212);
+}
+
+.links {
+    padding-top: 3%;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30%;
+}

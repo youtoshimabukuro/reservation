@@ -34,10 +34,18 @@
                     @endhasanyrole
                     @hasanyrole('representative')
                         <li>
-                            <form action="">
+                            <form action="/representative/reservationConfirm">
                                 @csrf
                                 <button type="submit" value="">
-                                    Todoを作成しました
+                                    予約確認
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="/representative/addStore">
+                                @csrf
+                                <button type="submit" value="">
+                                    店舗情報作成
                                 </button>
                             </form>
                         </li>

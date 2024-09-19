@@ -12,7 +12,7 @@
 
 @section('search')
 <div class="search">
-    <form action="/reservation/search" method="post">
+    <form action="/search" method="post">
         @csrf
         <select name="city" onchange="this.form.submit()">
             @foreach($cities as $city)

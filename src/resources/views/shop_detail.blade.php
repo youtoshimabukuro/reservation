@@ -16,8 +16,18 @@
                 </form>
                 <h2>{{$shop['shop_name']}}</h2>
             </div>
+            @php
+                $i = 0;
+                if (str_contains($shop->shop_img, 'storage/photograph')) {
+                    $i = 1;
+                }
+            @endphp
             <div class="shop-description-img">
-                <img src="{{$shop['shop_img']}}" alt="">
+                @if ($i == 0)
+                    <img src="{{$shop['shop_img']}}">
+                @else
+                    <img src="{{asset($shop->shop_img)}}">
+                @endif
             </div>
             <div class="shop-description-tag">
                 <p class="shop-city">#{{$shop->city->city_name}}</p>

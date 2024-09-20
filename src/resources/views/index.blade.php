@@ -41,7 +41,19 @@
         @foreach ($shops as $shop)
             <div class="shop-all_item">
                 <div class="shop-img-box">
-                    <img src="{{$shop->shop_img}}" alt="" class="shop-img">
+                    @php
+                        $i=0;
+                        if (str_contains($shop->shop_img,'storage/photograph'))
+                        {
+                            $i=1;
+                        }
+                    @endphp
+
+                    @if ($i==0)
+                        <img src="{{$shop->shop_img}}" alt="" class="shop-img">
+                    @else
+                        <img src="{{asset($shop->shop_img)}}" alt="" class="shop-img">
+                    @endif
                 </div>
                 <h4 class="shop-name">{{$shop->shop_name}}</h4>
                 <div class="shop-tag-box">
@@ -58,15 +70,15 @@
                     <form action="/favorite" id="form" class="favorite-form" method="post" target="sendFavorite">
                         @csrf
                         @if (@count($favorites) > 0)
-                            <?php        $i = 0; ?>
+                            <?php        $r = 0; ?>
                             @foreach ($favorites as $favorite)
                                 @if ($shop->id == $favorite->shop_id)
                                     <input type="checkbox" id="{{$shop->id}}" checked onchange="this.form.submit()" class="btn-send">
-                                    <?php                $i++; ?>
+                                    <?php                $r++; ?>
                                     @break
                                 @endif
                             @endforeach
-                            @if ($i == 0)
+                            @if ($r == 0)
                                 <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
                             @endif
                         @else
@@ -79,28 +91,6 @@
                 </div>
             </div>
         @endforeach
-        <div class="shop-all_item">
-            <div class="shop-img-box">
-                <img src="{{asset('storage/photograph/about.jpg')}}" alt="" class="shop-img">
-            </div>
-            <h4 class="shop-name">仙人</h4>
-            <div class="shop-tag-box">
-                <p class="shop-city">#東京</p>
-                <p class="shop-genre">#寿司</p>
-            </div>
-            <div class="shop-bottom-box">
-                <div class="shop-btn">
-                    <form action="">
-                        <button>詳しく見る</button>
-                    </form>
-                </div>
-                <form action="" class="favorite-form">
-                    <input type="checkbox" id="test" name="favorite" value="1" onchange="">
-                    <label for="test" class="heart"></label>
-                </form>
-                <iframe name="sendPhoto"></iframe>
-            </div>
-        </div>
     </div>
 </div>
 

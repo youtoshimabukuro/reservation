@@ -70,7 +70,19 @@
                 @foreach ($favorites as $favorite)
                     <div class="shop-all_item">
                         <div class="shop-img-box">
-                            <img src="{{$favorite->shop->shop_img}}" alt="" class="shop-img">
+                            @php
+                                $i=0;
+                                if (str_contains($favorite->shop->shop_img,'storage/photograph'))
+                                {
+                                    $i=1;
+                                }
+                            @endphp
+
+                            @if ($i==0)
+                                <img src="{{$favorite->shop->shop_img}}" alt="" class="shop-img">
+                            @else
+                                <img src="{{asset($favorite->shop->shop_img)}}" alt="" class="shop-img">
+                            @endif
                         </div>
                         <h4 class="shop-name">{{$favorite->shop->shop_name}}</h4>
                         <div class="shop-tag-box">

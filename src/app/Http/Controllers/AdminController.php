@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Session;
 
 class AdminController extends Controller
 {
@@ -15,7 +15,7 @@ class AdminController extends Controller
         return view('representative_register');
     }
 
-    public function postRegister(RegisterRequest $request)
+    public function create(RegisterRequest $request)
     {
         $representative=User::create([
             'name' => $request['name'],
@@ -23,14 +23,10 @@ class AdminController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        $representativeRole = Role::create(['name' => 'representative']);
+        $representative->assignRole('representative');
 
-        // $store_representative = Permission::create(['name' => 'store_representative']);
+        // Session::flash('message', '代表者を登録しました');
 
-        // $adminRole->givePermissionTo($store_representative);
-
-        $representative->assignRole($representativeRole);
-
-        return view('representative_register');
+        return redirect('/admin/register')->with('message','代表者を登録しました');
     }
 }

@@ -15,6 +15,7 @@
     <form action="/search" method="post">
         @csrf
         <select name="city" onchange="this.form.submit()">
+            <option value="0">All city</option>
             @foreach($cities as $city)
                 <option value="{{$city->id}}" @if(request('city') == $city->id) selected @endif>
                     {{$city->city_name}}
@@ -22,6 +23,7 @@
             @endforeach
         </select>
         <select name="genre" onchange="this.form.submit()">
+            <option value="0">All genre</option>
             @foreach ($genres as $genre)
                 <option value="{{$genre->id}}" @if(request('genre') == $genre->id) selected @endif>
                     {{$genre->genre_name}}

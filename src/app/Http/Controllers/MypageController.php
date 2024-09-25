@@ -24,4 +24,16 @@ class MypageController extends Controller
 
         return redirect('/mypage');
     }
+
+    public function close(Request $request)
+    {
+        // Session::put('reservation');
+        $reservations = Reservation::where('user_id', Auth::id())->
+            where('id', '!=',$request->id)
+            ->paginate(1, ['*'], 'page1');
+
+        $favorites = Favorite::where('user_id', Auth::id())->paginate(2);
+
+        return view('mypage', compact('reservations', 'favorites'));
+    }
 }

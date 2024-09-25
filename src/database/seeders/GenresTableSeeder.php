@@ -15,10 +15,6 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'genre_name' => 'All genre'
-        ];
-        DB::table('genres')->insert($param);
-        $param = [
             'genre_name' => '寿司'
         ];
         DB::table('genres')->insert($param);

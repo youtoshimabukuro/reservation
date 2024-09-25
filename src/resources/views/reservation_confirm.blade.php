@@ -11,7 +11,7 @@
         <form action="/date">
             <!-- @csrf -->
             <button  type="submit" class="date_ttl-btn" name="day" value="">&lt;</button>
-            <input type="text" class="date" name="date" value="{{$date}}" readonly>
+            <input type="text" class="date" name="date" value="{{(new DateTime)->format('Y-m-d')}}" readonly>
             <button type="submit" class="date_ttl-btn" name="day" value="">&gt;</button>
         </form>
     </h1>
@@ -24,15 +24,17 @@
                 <th>時間</th>
                 <th>人数</th>
             </tr>
-            <!-- @foreach ($times as $time) -->
-                <tr>
-                    <td>{{}}</td>
-                    <td>{{}}</td>
-                    <td>{{}}</td>
-                    <td>{{}}</td>
-                    <td>{{}}</td>
-                </tr>
-            <!-- @endforeach -->
+            @if (@isset($reservations))
+                @foreach ($reservations as $reservation)
+                    <tr>
+                        <td>{{$reservation->user->name}}</td>
+                        <td>{{$reservation->shop->shop_name}}</td>
+                        <td>{{$reservation->date}}</td>
+                        <td>{{$reservation->time->reservation_time}}</td>
+                        <td>{{$reservation->number->number}}</td>
+                    </tr>
+                @endforeach
+            @endif
         </table>
     </div>
     <div class="links">{{}}</div>

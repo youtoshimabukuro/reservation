@@ -15,10 +15,6 @@ class CitiesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'city_name' => 'All city'
-        ];
-        DB::table('cities')->insert($param);
-        $param = [
             'city_name' => '東京都'
         ];
         DB::table('cities')->insert($param);

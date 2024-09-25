@@ -15,6 +15,7 @@ class Shop extends Model
         'city_id',
         'genre_id',
         'shop_overview',
+        'creator_user_id'
     ];
 
     public function city()

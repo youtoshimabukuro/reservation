@@ -20,6 +20,7 @@ class CreateShopsTable extends Migration
             $table->integer('city_id');
             $table->integer('genre_id');
             $table->string('shop_overview', 300);
+            $table->integer('creator_user_id');
             $table->timestamps();
         });
     }

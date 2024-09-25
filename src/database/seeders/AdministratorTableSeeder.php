@@ -24,10 +24,6 @@ class AdministratorTableSeeder extends Seeder
 
         $adminRole = Role::create(['name' => 'admin']);
 
-        // $store_representative = Permission::create(['name' => 'store_representative']);
-
-        // $adminRole->givePermissionTo($store_representative);
-
         $administrator->assignRole($adminRole);
     }
 }

@@ -13,19 +13,31 @@
             <div class="reservation-status-ttl">
                 <h3>予約状況</h3>
             </div>
-            @foreach ($reservations as $reservation)
+            <?php $r=0 ?>
+            @foreach ($reservations as $index => $reservation)
+            <?php $r++; ?>
                 <div class="reservation-description">
                     <div class="reservation-description-top">
                         <div class="reservation-description-ttl">
                             <span class="clock">
                             </span>
-                            <h4>予約{{$reservation->id}}</h4>
+                            <h4>予約{{$index + 1}}</h4>
                         </div>
                         <div class="reservation-description-close">
-                            <form action="">
-                                <label class="close_btn" for="1"></label>
-                                <input type="submit" id="1" value="">
-                            </form>
+                            <a class="close_btn" href="/mypage?page1=
+                            @if (count($reservations) != $index)
+                            {{$index + 2}}
+                            @else
+                            {{1}}
+                            @endif
+                            "></a>
+                            {{count($reservations)}}
+                            {{$index + 1}}
+                            <!-- <form action="/mypage/close" method="post">
+                            @csrf
+                                <label class="close_btn" for="close"></label>
+                                <input type="submit" id="close" name="id" value="{{$reservation->id}}">
+                            </form> -->
                         </div>
                     </div>
                     <table class="reservation-table">
@@ -71,14 +83,13 @@
                     <div class="shop-all_item">
                         <div class="shop-img-box">
                             @php
-                                $i=0;
-                                if (str_contains($favorite->shop->shop_img,'storage/photograph'))
-                                {
-                                    $i=1;
-                                }
+    $i = 0;
+    if (str_contains($favorite->shop->shop_img, 'storage/photograph')) {
+        $i = 1;
+    }
                             @endphp
 
-                            @if ($i==0)
+                            @if ($i == 0)
                                 <img src="{{$favorite->shop->shop_img}}" alt="" class="shop-img">
                             @else
                                 <img src="{{asset($favorite->shop->shop_img)}}" alt="" class="shop-img">

@@ -22,7 +22,7 @@ use App\Http\Controllers\MypageController;
 Route::middleware('auth')->group(function () {
     Route::get('/', [ReservationController::class, 'index']);
     Route::get('/admin/register', [AdminController::class, 'getRegister']);
-    Route::post('/admin/register', [AdminController::class, 'postRegister']);
+    Route::post('/admin/register', [AdminController::class, 'create']);
     Route::get('/representative/reservationConfirm', [RepresentativeController::class, 'reservationConfirm']);
     Route::get('/representative/addStore', [RepresentativeController::class, 'addStore']);
     Route::post('/representative/create', [RepresentativeController::class, 'create']);
@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::get('/mypage', [ReservationController::class, 'myPage']);
     Route::post('/mypage/favorite', [MypageController::class, 'favorite']);
-    Route::post('/detail/{shop_id}', [ReservationController::class, 'shopDetail']);
+    Route::post('/mypage/close', [MypageController::class, 'close']);
+    Route::post('/detail/{shop_id}', [ReservationController::class, 'detail']);
     Route::post('/reserve/confirm', [ReserveController::class, 'confirm']);
     Route::get('/reserve/confirm', [ReserveController::class, 'getConfirm']);
     Route::post('/reserve/reserve', [ReserveController::class, 'reserve']);

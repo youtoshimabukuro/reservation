@@ -34,8 +34,8 @@ class ReservationController extends Controller
         $genres = Genre::all();
         $favorites = Favorite::where('user_id', Auth::id())->get();
 
-        $shops = Shop::where('city_id', $request->city == 1 ? '>' : '=', $request->city)->
-            where('genre_id', $request->genre == 1 ? '>' : '=', $request->genre)->
+        $shops = Shop::where('city_id', $request->city == 0 ? '>' : '=', $request->city)->
+            where('genre_id', $request->genre == 0 ? '>' : '=', $request->genre)->
             where('shop_name', 'LIKE', "%{$request->search}%")
             ->get();
 
@@ -44,7 +44,7 @@ class ReservationController extends Controller
         return view('index', compact('cities', 'genres', 'shops', 'favorites'));
     }
 
-    public function shopDetail(Shop $shop_id)
+    public function detail(Shop $shop_id)
     {
         $shop = $shop_id;
         $date = new DateTime();
@@ -83,7 +83,7 @@ class ReservationController extends Controller
 
     public function myPage()
     {
-        $reservations = Reservation::paginate(1, ['*'], 'page1');
+        $reservations = Reservation::where('user_id', Auth::id())->paginate(1, ['*'], 'page1');
 
         $favorites = Favorite::where('user_id', Auth::id())->paginate(2);
 

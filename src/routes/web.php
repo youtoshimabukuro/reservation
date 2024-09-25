@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/representative/reservationConfirm', [RepresentativeController::class, 'reservationConfirm']);
     Route::get('/representative/addStore', [RepresentativeController::class, 'addStore']);
     Route::post('/representative/create', [RepresentativeController::class, 'create']);
+    Route::post('/representative/update', [RepresentativeController::class, 'update']);
     Route::post('/search', [ReservationController::class, 'search']);
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::get('/mypage', [ReservationController::class, 'myPage']);

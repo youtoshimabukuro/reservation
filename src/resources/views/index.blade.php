@@ -40,59 +40,53 @@
 
 <div class="shop-all">
     <div class="shop-all_inner">
-        @foreach ($shops as $shop)
-            <div class="shop-all_item">
-                <div class="shop-img-box">
-                    @php
-                        $i=0;
-                        if (str_contains($shop->shop_img,'storage/photograph'))
-                        {
-                            $i=1;
-                        }
-                    @endphp
-
-                    @if ($i==0)
-                        <img src="{{$shop->shop_img}}" alt="" class="shop-img">
-                    @else
-                        <img src="{{asset($shop->shop_img)}}" alt="" class="shop-img">
-                    @endif
-                </div>
-                <h4 class="shop-name">{{$shop->shop_name}}</h4>
-                <div class="shop-tag-box">
-                    <p class="shop-city">#{{$shop->City->city_name}}</p>
-                    <p class="shop-genre">#{{$shop->genre->genre_name}}</p>
-                </div>
-                <div class="shop-bottom-box">
-                    <div class="shop-btn">
-                        <form action="/detail/{{$shop->id}}" method="post">
-                            @csrf
-                            <button>詳しく見る</button>
-                        </form>
+        @isset($shops)
+            @foreach ($shops as $shop)
+                <div class="shop-all_item">
+                    <div class="shop-img-box">
+                        @if (!str_contains($shop->shop_img, 'storage/photograph'))
+                            <img src="{{$shop->shop_img}}" alt="" class="shop-img">
+                        @else
+                            <img src="{{asset($shop->shop_img)}}" alt="" class="shop-img">
+                        @endif
                     </div>
-                    <form action="/favorite" id="form" class="favorite-form" method="post" target="sendFavorite">
-                        @csrf
-                        @if (@count($favorites) > 0)
-                            <?php        $r = 0; ?>
-                            @foreach ($favorites as $favorite)
-                                @if ($shop->id == $favorite->shop_id)
-                                    <input type="checkbox" id="{{$shop->id}}" checked onchange="this.form.submit()" class="btn-send">
-                                    <?php                $r++; ?>
-                                    @break
+                    <h4 class="shop-name">{{$shop->shop_name}}</h4>
+                    <div class="shop-tag-box">
+                        <p class="shop-city">#{{$shop->City->city_name}}</p>
+                        <p class="shop-genre">#{{$shop->genre->genre_name}}</p>
+                    </div>
+                    <div class="shop-bottom-box">
+                        <div class="shop-btn">
+                            <form action="/detail/{{$shop->id}}" method="post">
+                                @csrf
+                                <button>詳しく見る</button>
+                            </form>
+                        </div>
+                        <form action="/favorite" id="form" class="favorite-form" method="post" target="sendFavorite">
+                            @csrf
+                            @if (@count($favorites) > 0)
+                                <?php        $i = 0; ?>
+                                @foreach ($favorites as $favorite)
+                                    @if ($shop->id == $favorite->shop_id)
+                                        <input type="checkbox" id="{{$shop->id}}" checked onchange="this.form.submit()" class="btn-send">
+                                        <?php                $i++; ?>
+                                        @break
+                                    @endif
+                                @endforeach
+                                @if ($i == 0)
+                                    <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
                                 @endif
-                            @endforeach
-                            @if ($r == 0)
+                            @else
                                 <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
                             @endif
-                        @else
-                            <input type="checkbox" id="{{$shop->id}}" onchange="this.form.submit()" class="btn-send">
-                        @endif
-                        <input type="text" name="favorite" value="{{$shop->id}}">
-                        <label for="{{$shop->id}}" class="heart"></label>
-                    </form>
-                    <iframe name="sendFavorite"></iframe>
+                            <input type="text" name="favorite" value="{{$shop->id}}">
+                            <label for="{{$shop->id}}" class="heart"></label>
+                        </form>
+                        <iframe name="sendFavorite"></iframe>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @endisset
     </div>
 </div>
 

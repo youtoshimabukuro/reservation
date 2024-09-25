@@ -28,10 +28,11 @@ class RepresentativeController extends Controller
 
     public function addStore()
     {
+        $shop = Shop::where('creator_user_id', Auth::id())->first();
         $cities = City::all();
         $genres = Genre::all();
 
-        return view('add_store',compact('cities','genres'));
+        return view('add_store',compact('cities','genres','shop'));
     }
 
     public function create(Request $request)
@@ -49,6 +50,37 @@ class RepresentativeController extends Controller
 
         shop::create($form);
 
-        return redirect('/representative/addStore');
+        return redirect('/representative/addStore')->with('message','店舗情報が作成されました');
+    }
+
+    public function update(Request $request)
+    {
+        if ($request->file('shop_img')!=null) {
+            $form = [
+                'shop_img'=>"storage/photograph/".$request->file('shop_img')->getClientOriginalName(),
+                'shop_name'=>$request->shop_name,
+                'city_id'=>$request->city,
+                'genre_id'=>$request->genre,
+                'shop_overview'=>$request->shop_overview,
+                'creator_user_id'=>Auth::id()
+            ];
+
+            $photograph = $request->file('shop_img')->storeAs('public/photograph', $request->file('shop_img')->getClientOriginalName());
+
+        } else {
+            $form = [
+                'shop_name' => $request->shop_name,
+                'city_id' => $request->city,
+                'genre_id' => $request->genre,
+                'shop_overview' => $request->shop_overview,
+                'creator_user_id' => Auth::id()
+            ];
+        }
+
+        $shop = Shop::where('creator_user_id', Auth::id())->first();
+
+        shop::find($shop->id)->update($form);
+
+        return redirect('/representative/addStore')->with('message','店舗情報が変更されました');
     }
 }

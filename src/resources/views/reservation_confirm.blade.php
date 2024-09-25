@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/reservation_confirm.css') }}">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 @endsection
 
 @section('main')
@@ -37,7 +38,7 @@
             @endif
         </table>
     </div>
-    <div class="links">{{}}</div>
+    <div class="links">{{$reservations->links()}}</div>
 </div>
 
 @endsection

@@ -64,7 +64,7 @@
             {{session('message')}}
         </div>
     @endif
-    @if ($errors->any())
+    @if (!str_contains(url()->previous(), 'reserve/confirm') && $errors->any())
         <div class="alert--danger">
             <ul>
                 @foreach ($errors->all() as $error)

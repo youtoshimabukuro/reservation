@@ -57,7 +57,7 @@
                     </div>
                     <div class="shop-bottom-box">
                         <div class="shop-btn">
-                            <form action="/detail/{{$shop->id}}" method="post">
+                            <form action="/detail/{{$shop->id}}">
                                 @csrf
                                 <button>詳しく見る</button>
                             </form>

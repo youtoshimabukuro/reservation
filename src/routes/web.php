@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage', [ReservationController::class, 'myPage']);
     Route::post('/mypage/favorite', [MypageController::class, 'favorite']);
     Route::post('/mypage/close', [MypageController::class, 'close']);
-    Route::post('/detail/{shop_id}', [ReservationController::class, 'detail']);
+    Route::get('/detail/{shop_id}', [ReservationController::class, 'detail']);
     Route::post('/reserve/confirm', [ReserveController::class, 'confirm']);
     Route::get('/reserve/confirm', [ReserveController::class, 'getConfirm']);
     Route::post('/reserve/reserve', [ReserveController::class, 'reserve']);

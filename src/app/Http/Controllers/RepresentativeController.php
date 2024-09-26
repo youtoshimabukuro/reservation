@@ -10,7 +10,7 @@ use App\Models\Reservation;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\RepresentativeRequest;
+use App\Http\Requests\StoreRequest;
 use Illuminate\Http\Request;
 
 class RepresentativeController extends Controller
@@ -35,7 +35,7 @@ class RepresentativeController extends Controller
         return view('add_store',compact('cities','genres','shop'));
     }
 
-    public function create(Request $request)
+    public function create(StoreRequest $request)
     {
         $form = [
             'shop_img'=>"storage/photograph/".$request->file('shop_img')->getClientOriginalName(),
@@ -53,7 +53,7 @@ class RepresentativeController extends Controller
         return redirect('/representative/addStore')->with('message','店舗情報が作成されました');
     }
 
-    public function update(Request $request)
+    public function update(StoreRequest $request)
     {
         if ($request->file('shop_img')!=null) {
             $form = [

@@ -13,9 +13,9 @@
             <div class="reservation-status-ttl">
                 <h3>予約状況</h3>
             </div>
-            <?php $r=0 ?>
+            <?php $r = 0 ?>
             @foreach ($reservations as $index => $reservation)
-            <?php $r++; ?>
+            <?php    $r++; ?>
                 <div class="reservation-description">
                     <div class="reservation-description-top">
                         <div class="reservation-description-ttl">
@@ -82,14 +82,7 @@
                 @foreach ($favorites as $favorite)
                     <div class="shop-all_item">
                         <div class="shop-img-box">
-                            @php
-    $i = 0;
-    if (str_contains($favorite->shop->shop_img, 'storage/photograph')) {
-        $i = 1;
-    }
-                            @endphp
-
-                            @if ($i == 0)
+                            @if (!str_contains($favorite->shop->shop_img, 'storage/photograph'))
                                 <img src="{{$favorite->shop->shop_img}}" alt="" class="shop-img">
                             @else
                                 <img src="{{asset($favorite->shop->shop_img)}}" alt="" class="shop-img">

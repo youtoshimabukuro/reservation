@@ -12,31 +12,6 @@ use App\Http\Requests\ReservationRequest;
 
 class ReserveController extends Controller
 {
-    public function Confirm(Request $request)
-    {
-        $confirm = [
-            'date' => $request->date_select,
-            'time' => $request->time_select,
-            'number' => $request->number_select
-        ];
-        $shop = Session::get('shop');
-        $date = new DateTime();
-        $times = Time::all();
-        $numbers = Number::all();
-        $timeId = Time::find($request->time_select);
-        $numberId = Number::find($request->number_select);
-
-        return view('shop_detail', compact('confirm', 'shop', 'date', 'times', 'numbers', 'timeId', 'numberId'));
-    }
-
-    public function getConfirm() 
-    {
-        $shop = Session::get('shop');
-        $date = new DateTime();
-        $times = Time::all();
-        $numbers = Number::all();
-        return view('shop_detail', compact( 'shop', 'date', 'times', 'numbers'));
-    }
 
     public function reserve(ReservationRequest $request)
     {

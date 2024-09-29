@@ -17,10 +17,10 @@
                 <h2>{{$shop['shop_name']}}</h2>
             </div>
             @php
-                $i = 0;
-                if (str_contains($shop->shop_img, 'storage/photograph')) {
-                    $i = 1;
-                }
+$i = 0;
+if (str_contains($shop->shop_img, 'storage/photograph')) {
+    $i = 1;
+}
             @endphp
             <div class="shop-description-img">
                 @if ($i == 0)
@@ -43,22 +43,23 @@
                     <h3>予約</h3>
                 </div>
                 <div class="reservation-form">
-                    <form action="/reserve/confirm" method="post">
+                    <form action="/reserve/reserve" id="reservation" method="post">
                         @csrf
-                        <input type="date" name="date_select" min="{{$date->format('Y-m-d')}}"
-                            value="{{request('date_select')}}" onchange="this.form.submit()">
-                        <select name="time_select" onchange="this.form.submit()">
-                            <option value="0">予約時間</option>
+                        <input type="hidden" name="shop_name" value="{{$shop->id}}" readonly>
+                        <input type="date" name="date" min="{{$date->format('Y-m-d')}}"
+                            value="{{request('date')}}" onchange="displayDate()">
+                        <select name="time" onchange="displayTime()">
+                            <option value="">予約時間</option>
                             @foreach ($times as $time)
-                                <option value="{{$time->id}}" @if(request('time_select') == $time->id) selected @endif>
+                                <option value="{{$time->id}}" @if(request('time') == $time->id) selected @endif>
                                     {{$time->reservation_time}}
                                 </option>
                             @endforeach
                         </select>
-                        <select name="number_select" onchange="this.form.submit()">
-                            <option value="0">予約人数</option>
+                        <select name="number" onchange="displayNumber()">
+                            <option value="">予約人数</option>
                             @foreach ($numbers as $number)
-                                <option value="{{$number->id}}" @if(request('number_select') == $number->id) selected @endif>
+                                <option value="{{$number->id}}" @if(request('number') == $number->id) selected @endif>
                                     {{$number->number}}人
                                 </option>
                             @endforeach
@@ -66,46 +67,38 @@
                     </form>
                 </div>
                 <div class="reservation-confirm">
-                    <form action="/reserve/reserve" id="reservation" method="post">
-                        @csrf
-                        <table class="reservation-table">
-                            <tr>
-                                <th>Shop</th>
-                                <td>{{$shop->shop_name}}</td>
-                                <input type="hidden" name="shop_name" value="{{$shop->id}}" readonly>
-                            </tr>
-                            <tr>
-                                <th>Date</th>
-                                @isset ($confirm)
-                                    <td>{{$confirm['date']}}</td>
-                                    <input type="hidden" name="date" value="{{$confirm['date']}}">
-                                @endisset
+                    @csrf
+                    <table class="reservation-table">
+                        <tr>
+                            <th>Shop</th>
+                            <td>{{$shop->shop_name}}</td>
+                            <input type="hidden" name="shop_name" value="{{$shop->id}}" readonly>
+                        </tr>
+                        <tr>
+                            <th>Date</th>
+                            <td id="date_confirm">
                                 @error('date')
-                                    <td><span class="error">{{ $message }}</span></td>
+                                    <span class="error">{{ $message }}</span>
                                 @enderror
-                            </tr>
-                            <tr>
-                                <th>Time</th>
-                                @if (@isset($confirm) && $confirm['time'] != 0)
-                                    <td>{{$timeId->reservation_time}}</td>
-                                    <input type="hidden" name="time" value="{{$confirm['time']}}">
-                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Time</th>
+                            <td id="time_confirm">
                                 @error('time')
-                                    <td><span class="error">{{ $message }}</span></td>
+                                    <span class="error">{{ $message }}</span>
                                 @enderror
-                            </tr>
-                            <tr>
-                                <th>Number</th>
-                                @if (@isset($confirm) && $confirm['number'] != 0)
-                                    <td>{{$numberId->number}}人</td>
-                                    <input type="hidden" name="number" value="{{$confirm['number']}}">
-                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Number</th>
+                            <td id="number_confirm">
                                 @error('number')
-                                    <td><span class="error">{{ $message }}</span></td>
+                                    <span class="error">{{ $message }}</span>
                                 @enderror
-                            </tr>
-                        </table>
-                    </form>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div class="reservation-btn">

@@ -47,11 +47,11 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                         @csrf
                         <input type="hidden" name="shop_name" value="{{$shop->id}}" readonly>
                         <input type="date" name="date" min="{{$date->format('Y-m-d')}}"
-                            value="{{request('date')}}" onchange="displayDate()">
+                            value="{{old('date')}}" onchange="displayDate()">
                         <select name="time" onchange="displayTime()">
                             <option value="">予約時間</option>
                             @foreach ($times as $time)
-                                <option value="{{$time->id}}" @if(request('time') == $time->id) selected @endif>
+                                <option value="{{$time->id}}" @if(old('time') == $time->id) selected @endif>
                                     {{$time->reservation_time}}
                                 </option>
                             @endforeach
@@ -59,7 +59,7 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                         <select name="number" onchange="displayNumber()">
                             <option value="">予約人数</option>
                             @foreach ($numbers as $number)
-                                <option value="{{$number->id}}" @if(request('number') == $number->id) selected @endif>
+                                <option value="{{$number->id}}" @if(old('number') == $number->id) selected @endif>
                                     {{$number->number}}人
                                 </option>
                             @endforeach
@@ -67,7 +67,6 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                     </form>
                 </div>
                 <div class="reservation-confirm">
-                    @csrf
                     <table class="reservation-table">
                         <tr>
                             <th>Shop</th>

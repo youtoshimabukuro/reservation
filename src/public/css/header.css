@@ -75,6 +75,7 @@ html,
     align-items: center;
     padding-left: 6%;
     box-sizing: border-box;
+    z-index: 20;
 }
 
 @media screen and (max-width: 768px) {
@@ -132,7 +133,6 @@ html,
     }
 }
 
-/* バツ状態 */
 .menu-btn.active span:nth-child(1) {
     top: 1.7vw;
     width: 60%;
@@ -172,6 +172,7 @@ html,
     visibility: hidden;
     position: fixed;
     align-items: center;
+    z-index: 15;
 }
 
 @media screen and (max-width: 768px) {

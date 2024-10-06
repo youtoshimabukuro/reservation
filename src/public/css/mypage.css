@@ -14,6 +14,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -168,14 +169,55 @@
     display: none;
 }
 
+.reservation-table_around {
+    width: 90%;
+    height: 80%;
+    overflow: hidden;
+    margin: 3% auto;
+    padding: 3%;
+    position: relative;
+}
+
+.reservation-table_around .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+}
+
+.reservation-table_around:hover .mask {
+    opacity: 1;
+}
+
+.reservation-table_around .caption {
+    font-size: 2vw;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-table_around .caption {
+        font-size: 5vw;
+        letter-spacing: 4px;
+        color: #fff;
+    }
+}
+
 .reservation-table {
     width: 100%;
-    height: 60%;
-    margin-top: 8%;
+    height: 100%;
 }
 
 .reservation-table tr {
-    display: block;
     width: 100%;
     height: 25%;
     display: flex;
@@ -186,9 +228,6 @@
 .reservation-table th,
 .reservation-table td {
     padding: 1.56%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     color: white;
     font-weight: 100;
     box-sizing: border-box;
@@ -213,6 +252,100 @@
 
 .reservation-table td {
     width: 70%;
+}
+
+.reservation-table input,
+.reservation-table select {
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: rgb(48, 93, 255);
+}
+
+.update {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    background-color: #ececec;
+    z-index: 10;
+}
+
+.update_inner {
+    width: 48%;
+    height: 80%;
+}
+
+.reservation-update {
+    width: 100%;
+    height: 85%;
+    background-color: #fff;
+}
+
+.reservation-update-item {
+    background-color: rgb(245, 245, 245);
+    border: 0.1vw solid gray;
+    border-collapse: collapse;
+    height: 20%;
+}
+
+.reservation-update-item,
+.reservation-update-item th,
+.reservation-update-item td {
+    text-align: left;
+    padding-left: 1vw;
+    font-size: 1.5vw;
+    color: rgb(107, 107, 107);
+    vertical-align: middle;
+}
+
+.reservation-update-item input {
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.reservation-update-item select {
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.update-btn {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-btn_inner {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-btn input,.update-btn label {
+    color: #FFF;
+    background-color: rgb(48, 93, 255);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 4% 5%;
+    font-size: 1.2vw;
+    box-shadow: 3px 3px 3px 0px rgba(138, 134, 134, 0.45);
+}
+
+.reservation-btn-check {
+    display: none;
+}
+
+.reservation-btn-check:checked~.update {
+    visibility: visible;
 }
 
 .link {

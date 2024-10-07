@@ -84,9 +84,10 @@ class ReservationController extends Controller
     public function myPage()
     {
         $reservations = Reservation::where('user_id', Auth::id())->paginate(1, ['*'], 'page1');
-
         $favorites = Favorite::where('user_id', Auth::id())->paginate(2);
+        $times = Time::all();
+        $numbers = Number::all();
 
-        return view('mypage', compact('reservations', 'favorites'));
+        return view('mypage', compact('reservations', 'favorites','times','numbers'));
     }
 }

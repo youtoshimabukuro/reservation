@@ -36,4 +36,17 @@ class MypageController extends Controller
 
         return view('mypage', compact('reservations', 'favorites'));
     }
+
+    public function update(Request $request) 
+    {
+        $form = [
+            'date' => $request->date,
+            'time_id' => $request->time,
+            'number_id' => $request->number
+        ];
+
+        Reservation::find($request->id)->update($form);
+
+        return redirect('/mypage');
+    }
 }

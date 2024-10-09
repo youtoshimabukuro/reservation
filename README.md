@@ -1,13 +1,13 @@
-__Rese__
+# Rese
 
 ![image](https://github.com/user-attachments/assets/5df39df8-7921-4a8c-a59e-c80f43f59d0e)
 
-_作成した目的_
+##"# 作成した目的  
 外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。
 
-_アプリケーションURL_
+###アプリケーションURL
 
-_機能一覧_  
+###機能一覧  
 会員登録機能  
 ログイン機能  
 ログアウト機能  
@@ -21,17 +21,17 @@ _機能一覧_
 飲食店追加機能  
 飲食店情報変更機能  
 
-_使用技術_
+### 使用技術
 Laravel 8.x  
 PHP  
 MySQL  
 
-_テーブル設計_
+### テーブル設計
 
-_ER図_
+### ER図
 
-_環境構築_
+### 環境構築
 
 Rese管理者ログイン方法  
 メールアドレス　rese@test.com  
-パスワード  reservation_pass  
+パスワード  reservation_pass

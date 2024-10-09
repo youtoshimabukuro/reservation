@@ -1,6 +1,6 @@
 アプリケーション名
 Rese
-![スクリーンショット 2024-10-10 013437](https://github.com/user-attachments/assets/a488dfee-4b10-42e4-aa44-e176851fc48d)
+![image](https://github.com/user-attachments/assets/5df39df8-7921-4a8c-a59e-c80f43f59d0e)
 
 作成した目的
 外部の飲食店予約サービスは手数料を取られるので自社で予約サービスを持ちたい。

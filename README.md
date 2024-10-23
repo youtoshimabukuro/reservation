@@ -70,7 +70,7 @@ MySQL
 8. php artisan key:generate  
 9. ブラウザでlocalhostと検索。成功していれば以下のような画面になります。
 
-   ![スクリーンショット 2024-10-24 005420](https://github.com/user-attachments/assets/cb370034-4bfe-4e5f-a40e-19c2748fe616)
+   ![スクリーンショット 2024-10-24 005420(2)](https://github.com/user-attachments/assets/0bbce52d-8156-44e2-a3c9-f892537202eb)
 
    もし以下のようなエラーがでた場合はexitコマンドを入力しカウントディレクトリへ移動  
    次のコマンドを実行してください sudo chmod -R 777 src/*  

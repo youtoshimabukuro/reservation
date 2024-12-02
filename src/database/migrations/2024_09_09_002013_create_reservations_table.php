@@ -21,6 +21,7 @@ class CreateReservationsTable extends Migration
             $table->integer('time_id');
             $table->integer('number_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

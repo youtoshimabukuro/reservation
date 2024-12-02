@@ -79,6 +79,7 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                                 @error('date')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
+                                {{old('date')}}
                             </td>
                         </tr>
                         <tr>
@@ -87,6 +88,9 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                                 @error('time')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
+                                @if (old('time') != "")
+                                    {{$times[old('time')]['reservation_time']}}
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -95,6 +99,9 @@ if (str_contains($shop->shop_img, 'storage/photograph')) {
                                 @error('number')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
+                                @if (old('number') != "")
+                                    {{$numbers[old('number')-1]['number']}}
+                                @endif
                             </td>
                         </tr>
                     </table>

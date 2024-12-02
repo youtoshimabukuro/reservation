@@ -9,6 +9,7 @@ use App\Models\Number;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -27,17 +28,22 @@ class MypageController extends Controller
 
     public function close(Request $request)
     {
-        // Session::put('reservation');
-        $reservations = Reservation::where('user_id', Auth::id())->
-            where('id', '!=',$request->id)
-            ->paginate(1, ['*'], 'page1');
+        if ($request->id!=null) {
+            $delete_id = Reservation::where('user_id', Auth::id())->
+            where('id', $request->id)->first();
+        Reservation::find($delete_id->id)->delete();
+        }
+
+        $reservations = Reservation::where('user_id', Auth::id())->paginate(1, ['*'], 'page1');
+        $times = Time::all();
+        $numbers = Number::all();
 
         $favorites = Favorite::where('user_id', Auth::id())->paginate(2);
 
-        return view('mypage', compact('reservations', 'favorites'));
+        return view('mypage', compact('reservations', 'favorites', 'times','numbers'));
     }
 
-    public function update(Request $request) 
+    public function update(Request $request)
     {
         $form = [
             'date' => $request->date,

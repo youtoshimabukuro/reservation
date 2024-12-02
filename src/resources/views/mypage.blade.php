@@ -13,64 +13,53 @@
             <div class="reservation-status-ttl">
                 <h3>予約状況</h3>
             </div>
-            <?php $r = 0 ?>
-            @foreach ($reservations as $index => $reservation)
-                <?php    $r++; ?>
-                <div class="reservation-description">
-                    <div class="reservation-description-top">
-                        <div class="reservation-description-ttl">
-                            <span class="clock">
-                            </span>
-                            <h4>予約{{$index + 1}}</h4>
-                        </div>
-                        <div class="reservation-description-close">
-                            <a class="close_btn" href="/mypage?page1=
-                                @if (count($reservations) != $index)
-                                    {{$index + 2}}
-                                @else
-                                    {{1}}
-                                @endif
-                                "></a>
-                            {{count($reservations)}}
-                            {{$index + 1}}
-                            <!-- <form action="/mypage/close" method="post">
-                                @csrf
-                                    <label class="close_btn" for="close"></label>
-                                    <input type="submit" id="close" name="id" value="{{$reservation->id}}">
-                                </form> -->
+            @isset ($reservations)
+            @foreach ($reservations as $reservation)
+            <div class="reservation-description">
+                <div class="reservation-description-top">
+                    <div class="reservation-description-ttl">
+                        <span class="clock">
+                        </span>
+                        <h4>予約</h4>
+                    </div>
+                    <div class="reservation-description-close">
+                        <form action="/mypage/close" method="post">
+                        @csrf
+                            <label class="close_btn" for="close"></label>
+                            <input type="submit" id="close" name="id" value="{{$reservation->id}}">
+                        </form>
+                    </div>
+                </div>
+                <label for="reservation-btn">
+                    <div class="reservation-table_around">
+                        <table class="reservation-table">
+                            <tr>
+                                <th>Shop</th>
+                                <td>{{$reservation->shop->shop_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>{{$reservation->date}}</td>
+                            </tr>
+                            <tr>
+                                <th>Time</th>
+                                <td>{{$reservation->time->reservation_time}}</td>
+                            </tr>
+                            <tr>
+                                <th>Number</th>
+                                <td>{{$reservation->number->number}}人</td>
+                            </tr>
+                        </table>
+                        <div class="mask">
+                            <div class="caption">変更する</div>
                         </div>
                     </div>
-                    <label for="reservation-btn">
-                        <div class="reservation-table_around">
-                            <table class="reservation-table">
-                                <tr>
-                                    <th>Shop</th>
-                                    <td>{{$reservation->shop->shop_name}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Date</th>
-                                    <td>{{$reservation->date}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Time</th>
-                                    <td>{{$reservation->time->reservation_time}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Number</th>
-                                    <td>{{$reservation->number->number}}人</td>
-                                </tr>
-                            </table>
-                            <div class="mask">
-                                <div class="caption">変更する</div>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-            @endforeach
-            <input type="checkbox" class="reservation-btn-check" id="reservation-btn">
-            <div class="link">
-                <span>{{$reservations->links()}}</span>
+                </label>
             </div>
+            <input type="checkbox" class="reservation-btn-check" id="reservation-btn">
+            <!-- <div class="link">
+                <span>{{$reservations->links()}}</span>
+            </div> -->
             <div class="update">
                 <div class="update_inner">
                     <table class="reservation-update">
@@ -120,6 +109,8 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+            @endisset
         </div>
         <div class="favorite">
             <div class="user">

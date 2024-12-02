@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'shop_name' => ['required'],
-            'city_id' => ['required'],
-            'genre_id' => ['required'],
+            'city' => ['required'],
+            'genre' => ['required'],
             'shop_overview' => ['required']
         ];
     }
@@ -35,8 +35,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'shop_name.required' => '店舗名を入力してください',
-            'city_id.required' => '都道府県を選択してください',
-            'genre_id.required' => '飲食店種類を選択してください',
+            'city.required' => '都道府県を選択してください',
+            'genre.required' => '飲食店種類を選択してください',
             'shop_overview.required' => '店舗概要を入力してください',
         ];
     }

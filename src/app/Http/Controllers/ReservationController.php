@@ -48,6 +48,7 @@ class ReservationController extends Controller
     {
         $shop = $shop_id;
         $date = new DateTime();
+        $date->modify('1 days');
         $times = Time::all();
         $numbers = Number::all();
         Session::put('shop', $shop);
@@ -83,6 +84,7 @@ class ReservationController extends Controller
 
     public function myPage()
     {
+        Reservation::onlyTrashed()->restore();
         $reservations = Reservation::where('user_id', Auth::id())->paginate(1, ['*'], 'page1');
         $favorites = Favorite::where('user_id', Auth::id())->paginate(2);
         $times = Time::all();

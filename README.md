@@ -78,6 +78,18 @@ MySQL
 
    ![スクリーンショット 2024-10-11 035146](https://github.com/user-attachments/assets/c12284bc-1027-464f-9ed8-eb7f2f01e3df)
 
+#### 店舗データの追加
+
+1.カウントディレクトリでdocker-compose exec php bashを入力しphpコンテナに入り下記のコマンドを実行する  
+  php artisan db:seed
+
+#### 追加店舗の画像フォルダ作成
+
+1.src/storage/app/public下にphotographディレクトリを作成
+
+2.カウントディレクトリでdocker-compose exec php bashを入力しphpコンテナに入り下記のコマンドを実行する  
+  php artisan storage:link
+
 ##### Rese管理者ログイン方法  
 メールアドレス　rese@test.com  
 パスワード  reservation_pass

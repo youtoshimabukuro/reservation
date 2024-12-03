@@ -93,3 +93,7 @@ MySQL
 ##### Rese管理者ログイン方法  
 メールアドレス　rese@test.com  
 パスワード  reservation_pass
+
+##### 店舗の代表者パスワード  
+
+src/database/seeders/RepresentativeTableSeeder.phpファイルを参照
